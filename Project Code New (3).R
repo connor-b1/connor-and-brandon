@@ -1,19 +1,19 @@
-#Libraries 
+#CBRKBW Urban Economics
 
-library(readxl)    # Reading excel file 
-library(tidyverse) # Modern data science library 
-library(plm)       # Panel data analysis library
-library(car)       # Companion to applied regression 
-library(gplots)    # Various programing tools for plotting data
-library(tseries)   # For timeseries analysis
-library(lmtest)    # For hetoroskedasticity analysis
+ 
+library(tidyverse)
+install.packages("plm") 
+install.packages("car")  
+install.packages("gplots") 
+install.packages("tseries")
+install.packages("lmtest") 
 
+data <- final_data_set_1
 
 #Reading in the data 
-remit_data <- read_excel("C:/Users/garre/Google Drive/School/Grad/Fall 2018/ECON 8010 - Econometrics/Econometrics Project/full_remit_data_thinned.xlsx")
-
+#loaded manually from file
 #Adding time trend
-remit_data$trend <- remit_data$year - min(remit_data$year)
+remit_data$trend <- data$year - min(data$year)
 
 #Set data as Panel Data
 remit_panel <- pdata.frame(remit_data, index = c("country","year"))
